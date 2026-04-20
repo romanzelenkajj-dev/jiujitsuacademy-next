@@ -40,9 +40,9 @@ export default async function MembershipPage({
 
   const kidPlans = [
     { label: dict.membership.month, price: 80 },
-    { label: `${dict.membership.quarter} (1.4 — 30.6.2025)`, price: 225 },
-    { label: `${dict.membership.quarter} (6.1 — 31.3.2025)`, price: 225 },
-    { label: `${dict.membership.quarter} (2.9 — 31.12.2024)`, price: 290 },
+    { label: `${dict.membership.quarter} (1.4 — 30.6.2026)`, price: 225 },
+    { label: `${dict.membership.quarter} (6.1 — 31.3.2026)`, price: 225 },
+    { label: `${dict.membership.quarter} (2.9 — 31.12.2025)`, price: 290 },
   ]
 
   return (
