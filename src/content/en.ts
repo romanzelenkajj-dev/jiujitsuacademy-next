@@ -1,0 +1,185 @@
+import type { Dictionary } from './sk'
+
+export const en: Dictionary = {
+  meta: {
+    siteName: 'JIU-JITSU Academy Bratislava',
+    home: {
+      title: 'JIU-JITSU Academy Bratislava — Brazilian Jiu-Jitsu (BJJ)',
+      description:
+        'Top Brazilian Jiu-Jitsu (BJJ) academy in Bratislava. Try JIU-JITSU with us for one week — free.',
+    },
+    rozvrh: {
+      title: 'Class schedule — JIU-JITSU Academy Bratislava',
+      description:
+        'Weekly Brazilian Jiu-Jitsu schedule for kids and adults in Bratislava. Monday through Saturday.',
+    },
+    clenstvo: {
+      title: 'Membership & pricing — JIU-JITSU Academy Bratislava',
+      description:
+        'Membership prices for adults and kids at JIU-JITSU Academy Bratislava. Monthly, quarterly and half-year plans.',
+    },
+    twoPercent: {
+      title: '2% of tax donation — JIU-JITSU Academy Bratislava',
+      description:
+        'Information to donate 2% of your Slovak income tax to JIU-JITSU Academy Bratislava non-profit.',
+    },
+    kontakt: {
+      title: 'Contact — JIU-JITSU Academy Bratislava',
+      description:
+        'Aircraft Sporthouse, Ivanská cesta 30/D, 821 04 Bratislava. info@jiujitsuacademy.sk, +421 904 267 507.',
+    },
+  },
+  nav: {
+    home: 'Home',
+    rozvrh: 'Schedule',
+    clenstvo: 'Membership',
+    twoPercent: '2%',
+    kontakt: 'Contact',
+    cta: 'Free week',
+    menu: 'Menu',
+    close: 'Close',
+  },
+  home: {
+    eyebrow: 'Brazilian Jiu-Jitsu · Bratislava',
+    heroTitle: 'Start today.',
+    heroSubtitle:
+      'Try Jiu-Jitsu with us for a full week, free. A fun, safe and practical martial art — a full-body workout plus real-world self-defense you can actually use.',
+    heroCta: 'Book my free week',
+    heroSecondary: 'See schedule',
+    bjjTitle: 'Brazilian Jiu-Jitsu',
+    bjjBody: [
+      'Brazilian JIU-JITSU (BJJ) is a martial art, a combat sport, and — above all — one of the most effective forms of self-defense, focused primarily on ground fighting. It was developed in the early 20th century in Brazil, where brothers Carlos and Helio Gracie adapted the traditional Japanese jiu-jitsu into this modern style.',
+      'Most BJJ techniques revolve around taking an opponent to the ground and gaining a dominant position and control — without having to physically hurt them — then forcing submission with joint locks or chokes. Thanks to these techniques, a physically smaller practitioner can beat a stronger opponent.',
+      'Beyond self-defense, BJJ brings many benefits: better physical and mental conditioning, improved confidence, stress relief, sharper problem-solving, deeper body awareness, and a strong social community.',
+    ],
+    kidsTitle: 'Brazilian Jiu-Jitsu for kids',
+    kidsBody:
+      'A healthy, active lifestyle from a young age helps kids manage both academic and social situations at school. JIU-JITSU teaches not only self-defense but also problem-solving skills that will serve your child for a lifetime.',
+    kidsCta: 'Sign up my child',
+    valuesTitle: 'Jiu-Jitsu builds',
+    values: [
+      'Confidence',
+      'Conditioning',
+      'Respect',
+      'Discipline',
+      'Responsibility',
+      'Athleticism',
+    ],
+    welcomeTitle: 'Welcome to Jiu-Jitsu Academy',
+    welcomeBody: [
+      'At JIU-JITSU Academy Bratislava we teach authentic Brazilian JIU-JITSU — proven as the most effective form of self-defense. Our instructors will teach you everything you need to know, from the foundations of self-defense to the highly technical side of competitive JIU-JITSU.',
+      'If you live in Bratislava or nearby, come try it out. Experience "the gentle art" on the mat at JIU-JITSU Academy Bratislava — free for one full week.',
+      'See you on the mats!',
+    ],
+  },
+  schedule: {
+    eyebrow: 'Effective from 1 Sep 2025',
+    title: 'Brazilian Jiu-Jitsu class schedule',
+    subtitle:
+      'Classes for kids (Mini 4–7, Juniors 8–14) and adults (beginners, advanced, MIX). Gi and NoGi.',
+    filterAll: 'All',
+    filterKids: 'Kids',
+    filterAdults: 'Adults',
+    filterGi: 'Gi',
+    filterNoGi: 'NoGi',
+    individual: 'Private sessions',
+    openMat: 'Open Mat',
+    days: {
+      mon: 'Monday',
+      tue: 'Tuesday',
+      wed: 'Wednesday',
+      thu: 'Thursday',
+      fri: 'Friday',
+      sat: 'Saturday',
+    },
+  },
+  membership: {
+    eyebrow: 'Pricing & membership',
+    title: 'Pick the plan that fits',
+    subtitle: 'Monthly, quarterly and half-year memberships. Your first week is always free.',
+    adults: 'Adults',
+    kids: 'Kids',
+    month: 'Month',
+    threeMonths: '3 months',
+    sixMonths: '6 months',
+    oneDay: '1 day',
+    quarter: 'Quarter',
+    currency: '€',
+    ctaBook: 'Book my free week',
+  },
+  twoPercent: {
+    eyebrow: 'Support us',
+    title: '2% of your Slovak income tax',
+    intro:
+      'Dear members, parents and supporters — here are all the details you need to donate 2% of your Slovak income tax to the academy.',
+    formsLabel: 'Tax donation forms',
+    formsUrl: 'https://rozhodni.sk/poukazatel/tlaciva-na-poukazanie-2-z-dane/',
+    details: {
+      name: 'JIU-JITSU Akadémia Bratislava',
+      form: 'Non-profit association (občianske združenie)',
+      registered: '2018',
+      evId: '4309',
+      ico: '50719874',
+      street: 'Landererova 6',
+      city: 'Bratislava',
+      zip: '811 09',
+      district: 'Bratislava I',
+      country: 'Slovakia',
+      iban: 'SK4311110000001516783004',
+      bank: 'UniCredit Bank Czech Republic and Slovakia, a.s., Vajnorská 100, Polus CC, Bratislava',
+    },
+    thankYou:
+      'Thank you sincerely — every contribution matters. JIU-JITSU Academy Bratislava.',
+  },
+  contact: {
+    eyebrow: 'Come say hi',
+    title: 'Contact',
+    subtitle: 'Aircraft Sporthouse, Ivanská cesta 30/D, 821 04 Bratislava.',
+    formName: 'Your name',
+    formEmail: 'Your email',
+    formMessage: 'Message',
+    formSubmit: 'Send',
+    formSubmitting: 'Sending…',
+    successTitle: 'Message sent',
+    successBody: 'Thanks — we will get back to you shortly.',
+    errorTitle: 'Something went wrong',
+    errorBody: 'We could not send your message. Please try again or email us directly at info@jiujitsuacademy.sk.',
+    addressLabel: 'Address',
+    emailLabel: 'Email',
+    phoneLabel: 'Phone',
+  },
+  freeWeek: {
+    trigger: 'Free week',
+    heading: 'Book your free week',
+    subheading:
+      'Fill out the form and we will confirm by email within 24 hours. Your first week with us is completely free.',
+    name: 'Full name',
+    email: 'Email',
+    phone: 'Phone',
+    startDate: 'When would you like to start?',
+    type: 'Who is signing up?',
+    typeAdult: 'Adult',
+    typeKid: 'Kid',
+    notes: 'Notes (optional)',
+    notesPlaceholder: 'Experience, goal, medical conditions…',
+    submit: 'Send my request',
+    submitting: 'Sending…',
+    successTitle: 'Done! Your request is in.',
+    successBody:
+      'We will get back to you on the email or phone you gave us within 24 hours.',
+    errorTitle: 'Something went wrong',
+    errorBody: 'Please try again or email us directly at info@jiujitsuacademy.sk.',
+    close: 'Close',
+  },
+  footer: {
+    tagline: 'Authentic Brazilian Jiu-Jitsu in Bratislava since 2017.',
+    rights: '© JIU-JITSU Academy Bratislava',
+    links: {
+      home: 'Home',
+      rozvrh: 'Schedule',
+      clenstvo: 'Membership',
+      twoPercent: '2%',
+      kontakt: 'Contact',
+    },
+  },
+}
