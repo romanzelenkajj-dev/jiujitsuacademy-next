@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getTransporter, mailFromEnv, escapeHtml } from '@/lib/mailer'
+import { buildFreeWeekReply } from '@/lib/freeWeekReply'
 
 // POST /api/free-week — delivers the sign-up form to info@jiujitsuacademy.sk
 // via the existing Websupport SMTP mailbox. Required env vars on Vercel:
@@ -79,6 +80,8 @@ export async function POST(req: Request) {
   try {
     const { to, from } = mailFromEnv()
     const transporter = getTransporter()
+
+    // 1. Notify the academy of the new lead.
     await transporter.sendMail({
       from,
       to,
@@ -87,6 +90,33 @@ export async function POST(req: Request) {
       text: plain,
       html,
     })
+
+    // 2. Auto-reply to the person who signed up — only when they didn't
+    //    leave any extra notes/questions. If they did, the academy will
+    //    answer personally so we don't pre-empt that with a canned message.
+    const noNotes = !notes || notes.trim() === ''
+    if (noNotes) {
+      const reply = buildFreeWeekReply(
+        locale === 'en' ? 'en' : 'sk',
+        type === 'kid' ? 'kid' : 'adult',
+        name,
+      )
+      try {
+        await transporter.sendMail({
+          from,
+          to: email,
+          replyTo: from, // replies from the user come back to info@
+          subject: reply.subject,
+          text: reply.text,
+          html: reply.html,
+        })
+      } catch (replyErr) {
+        // The lead was already captured — don't fail the request just
+        // because the auto-reply hiccupped. Log it for manual follow-up.
+        console.error('Free-week auto-reply failed:', replyErr)
+      }
+    }
+
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('SMTP send failed:', err)
