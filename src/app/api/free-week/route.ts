@@ -46,12 +46,41 @@ export async function POST(req: Request) {
     )
   }
 
+  // Whether the auto-reply will go out. Drives the status banner + subject
+  // prefix in the academy notification so the inbox shows at a glance which
+  // submissions are handled and which need a manual reply.
+  const noNotes = !notes || notes.trim() === ''
+
+  const subjectPrefix = noNotes ? '✓ ' : '✏ '
+  const subjectSuffix = noNotes
+    ? ''
+    : locale === 'en'
+      ? ' — needs reply'
+      : ' — vyžaduje odpoveď'
   const subject =
+    subjectPrefix +
     (locale === 'en'
       ? 'Free-week request — '
-      : 'Prihláška na týždeň zdarma — ') + name
+      : 'Prihláška na týždeň zdarma — ') +
+    name +
+    subjectSuffix
+
+  // Status line shown at the top of the body. One sentence.
+  const statusLine = noNotes
+    ? locale === 'en'
+      ? `Auto-reply sent to ${email}. No further action needed unless they reply.`
+      : `Automatická odpoveď bola odoslaná na ${email}. Ak používateľ neodpíše späť, nie je potrebná žiadna ďalšia akcia.`
+    : locale === 'en'
+      ? 'User wrote a note/question — please reply manually.'
+      : 'Používateľ napísal poznámku alebo otázku — prosím, odpovedzte manuálne.'
+
+  const bannerColor = noNotes
+    ? { bg: '#ECFDF5', border: '#10B981', text: '#065F46', icon: '✓' }
+    : { bg: '#FFFBEB', border: '#F59E0B', text: '#78350F', icon: '✏' }
 
   const plain = [
+    `[${noNotes ? 'AUTO-REPLY SENT' : 'NEEDS REPLY'}] ${statusLine}`,
+    '',
     `Name:       ${name}`,
     `Email:      ${email}`,
     `Phone:      ${phone}`,
@@ -64,17 +93,23 @@ export async function POST(req: Request) {
     .join('\n')
 
   const html = `
-    <table style="font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.6;">
-      <tr><td><b>Name</b></td><td>${escapeHtml(name)}</td></tr>
-      <tr><td><b>Email</b></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
-      <tr><td><b>Phone</b></td><td><a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a></td></tr>
-      <tr><td><b>Start date</b></td><td>${escapeHtml(startDate)}</td></tr>
-      <tr><td><b>Type</b></td><td>${escapeHtml(type ?? 'adult')}</td></tr>
-      ${notes ? `<tr><td style="vertical-align: top"><b>Notes</b></td><td>${escapeHtml(notes).replace(/\n/g, '<br>')}</td></tr>` : ''}
-    </table>
-    <p style="font-family: system-ui; font-size: 12px; color: #666; margin-top: 24px;">
-      Sent from jiujitsuacademy.sk · locale: ${escapeHtml(locale ?? 'sk')}
-    </p>
+    <div style="font-family: system-ui, sans-serif; max-width: 600px;">
+      <div style="background: ${bannerColor.bg}; border-left: 4px solid ${bannerColor.border}; color: ${bannerColor.text}; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; line-height: 1.5;">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">${bannerColor.icon} ${noNotes ? (locale === 'en' ? 'Auto-reply sent' : 'Automatická odpoveď odoslaná') : (locale === 'en' ? 'Manual reply needed' : 'Vyžaduje manuálnu odpoveď')}</strong>
+        ${escapeHtml(statusLine)}
+      </div>
+      <table style="font-size: 14px; line-height: 1.6;">
+        <tr><td><b>Name</b></td><td>${escapeHtml(name)}</td></tr>
+        <tr><td><b>Email</b></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
+        <tr><td><b>Phone</b></td><td><a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a></td></tr>
+        <tr><td><b>Start date</b></td><td>${escapeHtml(startDate)}</td></tr>
+        <tr><td><b>Type</b></td><td>${escapeHtml(type ?? 'adult')}</td></tr>
+        ${notes ? `<tr><td style="vertical-align: top"><b>Notes</b></td><td>${escapeHtml(notes).replace(/\n/g, '<br>')}</td></tr>` : ''}
+      </table>
+      <p style="font-size: 12px; color: #666; margin-top: 24px;">
+        Sent from jiujitsuacademy.sk · locale: ${escapeHtml(locale ?? 'sk')}
+      </p>
+    </div>
   `
 
   try {
@@ -94,7 +129,6 @@ export async function POST(req: Request) {
     // 2. Auto-reply to the person who signed up — only when they didn't
     //    leave any extra notes/questions. If they did, the academy will
     //    answer personally so we don't pre-empt that with a canned message.
-    const noNotes = !notes || notes.trim() === ''
     if (noNotes) {
       const reply = buildFreeWeekReply(
         locale === 'en' ? 'en' : 'sk',
