@@ -39,8 +39,8 @@ function copyFor(locale: Locale, type: FreeWeekType, name: string): Copy {
       subject: 'Týždeň zdarma — potvrdenie · JIU-JITSU Academy Bratislava',
       greeting: 'Dobrý deň,',
       intro: isKid
-        ? 'ďakujeme za prihlášku Vášho dieťaťa na týždeň zdarma. Potvrdzujem, že sa môžete prísť na detské tréningy podľa rozvrhu — prvý týždeň je u nás <strong>kompletne zdarma</strong>.'
-        : 'ďakujeme za prihlášku na týždeň zdarma. Potvrdzujem, že sa môžete prísť pozrieť na ktorýkoľvek tréning podľa rozvrhu — prvý týždeň je u nás <strong>kompletne zdarma</strong>.',
+        ? 'ďakujeme za prihlášku Vášho dieťaťa na týždeň zdarma. Potvrdzujem, že môžete prísť na detské tréningy podľa rozvrhu — prvý týždeň je u nás <strong>kompletne zdarma</strong>.'
+        : 'ďakujeme za prihlášku na týždeň zdarma. Potvrdzujem, že môžete prísť na ktorýkoľvek tréning pre začiatočníkov/Mix podľa rozvrhu — prvý týždeň je u nás <strong>kompletne zdarma</strong>.',
       whereLabel: 'Kde sme',
       bringLabel: 'Čo si priniesť',
       bring: isKid
