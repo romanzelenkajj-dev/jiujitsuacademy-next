@@ -27,6 +27,10 @@ interface Copy {
   firstTime: string
   schedule: string // markdown-ish: "Label: URL"
   scheduleUrl: string
+  appLabel: string
+  appText: string
+  appButton: string
+  appUrl: string
   questions: string
   closing: string
   signOff: string
@@ -59,6 +63,12 @@ function copyFor(locale: Locale, type: FreeWeekType, name: string): Copy {
         : 'Tréningy sú otvorené pre začiatočníkov aj pokročilých. Ak prichádzate prvýkrát, prosím, príďte <strong>5–10 minút pred začiatkom tréningu</strong>.',
       schedule: 'Aktuálny rozvrh',
       scheduleUrl: 'https://jiujitsuacademy.sk/sk/rozvrh',
+      appLabel: 'Naša aplikácia',
+      appText: isKid
+        ? 'Zaregistrujte svoje dieťa do našej členskej aplikácie. Týždeň zdarma získate automaticky a na tréningy ho prihlásite priamo z telefónu:'
+        : 'Zaregistrujte sa do našej členskej aplikácie. Týždeň zdarma získate automaticky a na tréningy sa prihlásite priamo z telefónu:',
+      appButton: 'Registrácia do aplikácie',
+      appUrl: 'https://app.jiujitsuacademy.sk/member/join',
       questions: `V prípade akýchkoľvek otázok ma neváhajte kontaktovať na tomto e-maile alebo na <a href="tel:${PHONE_TEL}" style="color:${ACCENT};text-decoration:underline;">${PHONE}</a>.`,
       closing: isKid
         ? 'Tešíme sa na Vás aj Vaše dieťa.'
@@ -91,6 +101,12 @@ function copyFor(locale: Locale, type: FreeWeekType, name: string): Copy {
       : "All training sessions are open to beginners and advanced students. If it's your first time, please come <strong>5–10 minutes early</strong>.",
     schedule: 'Current schedule',
     scheduleUrl: 'https://jiujitsuacademy.sk/en/rozvrh',
+    appLabel: 'Our app',
+    appText: isKid
+      ? 'Sign your child up in our member app. Your free trial week is added automatically and you can check them in to classes straight from your phone:'
+      : 'Sign up in our member app. Your free trial week is added automatically and you can check in to classes straight from your phone:',
+    appButton: 'Sign up in the app',
+    appUrl: 'https://app.jiujitsuacademy.sk/member/join',
     questions: `If you have any questions, feel free to reply to this email or call <a href="tel:${PHONE_TEL}" style="color:${ACCENT};text-decoration:underline;">${PHONE}</a>.`,
     closing: isKid
       ? 'Looking forward to seeing you and your child on the mats.'
@@ -118,6 +134,10 @@ function buildHtml(c: Copy): string {
     <p style="margin:0 0 16px 0;">${c.firstTime}</p>
 
     <p style="margin:0 0 16px 0;">${c.schedule}: <a href="${c.scheduleUrl}" style="color:${ACCENT};text-decoration:underline;">${c.scheduleUrl.replace(/^https?:\/\//, '')}</a></p>
+
+    <p style="margin:24px 0 6px 0;font-weight:700;color:${ACCENT};text-transform:uppercase;letter-spacing:.05em;font-size:13px;">${c.appLabel}</p>
+    <p style="margin:0 0 12px 0;">${c.appText}</p>
+    <p style="margin:0 0 16px 0;"><a href="${c.appUrl}" style="display:inline-block;background:${ACCENT};color:#ffffff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:8px;">${c.appButton}</a></p>
 
     <p style="margin:0 0 16px 0;">${c.questions}</p>
 
@@ -153,6 +173,10 @@ function buildText(c: Copy): string {
     stripHtml(c.firstTime),
     '',
     `${c.schedule}: ${c.scheduleUrl}`,
+    '',
+    upper(c.appLabel),
+    stripHtml(c.appText),
+    `${c.appButton}: ${c.appUrl}`,
     '',
     stripHtml(c.questions),
     '',
