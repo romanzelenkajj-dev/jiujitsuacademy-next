@@ -115,6 +115,21 @@ function copyFor(locale: Locale, type: FreeWeekType, name: string): Copy {
   }
 }
 
+// Bulletproof email button. The background rides on the bgcolor attribute and
+// the text color on a <font color> element, so both survive sanitizers (such as
+// Roundcube Washtml) that strip background-color and color from inline CSS.
+// Padding is written long form for the same reason. Corners are square in clients
+// that drop border-radius, which is only cosmetic; the button stays visible.
+function buttonHtml(href: string, label: string): string {
+  return `<table cellpadding="0" cellspacing="0" border="0" align="left" style="margin:0 0 16px 0;">
+    <tr>
+      <td bgcolor="${ACCENT}" align="center" style="background-color:${ACCENT};border-radius:8px;">
+        <a href="${href}" style="display:inline-block;color:#ffffff;text-decoration:none;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;line-height:16px;padding-top:12px;padding-right:22px;padding-bottom:12px;padding-left:22px;"><font color="#ffffff">${label}</font></a>
+      </td>
+    </tr>
+  </table>`
+}
+
 function buildHtml(c: Copy): string {
   const bringList = c.bring.map((b) => `<li>${b}</li>`).join('')
   return `<table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:560px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,Arial,sans-serif;color:#111;line-height:1.55;font-size:15px;">
@@ -137,7 +152,7 @@ function buildHtml(c: Copy): string {
 
     <p style="margin:24px 0 6px 0;font-weight:700;color:${ACCENT};text-transform:uppercase;letter-spacing:.05em;font-size:13px;">${c.appLabel}</p>
     <p style="margin:0 0 12px 0;">${c.appText}</p>
-    <p style="margin:0 0 16px 0;"><a href="${c.appUrl}" style="display:inline-block;background:${ACCENT};color:#ffffff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:8px;">${c.appButton}</a></p>
+    ${buttonHtml(c.appUrl, c.appButton)}
 
     <p style="margin:0 0 16px 0;">${c.questions}</p>
 

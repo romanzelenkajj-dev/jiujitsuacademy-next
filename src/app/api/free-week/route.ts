@@ -94,10 +94,14 @@ export async function POST(req: Request) {
 
   const html = `
     <div style="font-family: system-ui, sans-serif; max-width: 600px;">
-      <div style="background: ${bannerColor.bg}; border-left: 4px solid ${bannerColor.border}; color: ${bannerColor.text}; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; line-height: 1.5;">
-        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">${bannerColor.icon} ${noNotes ? (locale === 'en' ? 'Auto-reply sent' : 'Automatická odpoveď odoslaná') : (locale === 'en' ? 'Manual reply needed' : 'Vyžaduje manuálnu odpoveď')}</strong>
-        ${escapeHtml(statusLine)}
-      </div>
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 20px;">
+        <tr>
+          <td bgcolor="${bannerColor.bg}" style="background-color: ${bannerColor.bg}; border-left: 4px solid ${bannerColor.border}; border-radius: 8px; padding-top: 14px; padding-right: 18px; padding-bottom: 14px; padding-left: 18px; font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5; color: ${bannerColor.text};">
+            <strong style="display: block; font-size: 15px;"><font color="${bannerColor.text}">${bannerColor.icon} ${noNotes ? (locale === 'en' ? 'Auto-reply sent' : 'Automatická odpoveď odoslaná') : (locale === 'en' ? 'Manual reply needed' : 'Vyžaduje manuálnu odpoveď')}</font></strong>
+            <font color="${bannerColor.text}">${escapeHtml(statusLine)}</font>
+          </td>
+        </tr>
+      </table>
       <table style="font-size: 14px; line-height: 1.6;">
         <tr><td><b>Name</b></td><td>${escapeHtml(name)}</td></tr>
         <tr><td><b>Email</b></td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
