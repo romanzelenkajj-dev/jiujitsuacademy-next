@@ -77,6 +77,9 @@ export const en: Dictionary = {
     title: 'Brazilian Jiu-Jitsu class schedule',
     subtitle:
       'Classes for kids (Mini 4–7, Juniors 8–14) and adults (beginners, advanced, MIX). Gi and NoGi.',
+    summerEyebrow: 'Summer schedule: 1 Jul – 31 Aug 2026',
+    summerSubtitle:
+      'During summer there is one combined kids class — Kids Mix (6–14) Gi — on Monday and Wednesday, 17:00–18:00. Adult classes run as usual. Gi and NoGi.',
     filterAll: 'All',
     filterKids: 'Kids',
     filterAdults: 'Adults',
