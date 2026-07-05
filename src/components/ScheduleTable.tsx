@@ -1,14 +1,21 @@
 'use client'
 
 import { useState } from 'react'
-import { schedule } from '@/content'
+import { getSchedule, type ScheduleVariant } from '@/content'
 import type { Locale } from '@/lib/i18n'
 import { getDict } from '@/content'
 
 type Track = 'all' | 'kids' | 'adults' | 'gi' | 'nogi'
 
-export function ScheduleTable({ locale }: { locale: Locale }) {
+export function ScheduleTable({
+  locale,
+  variant = 'regular',
+}: {
+  locale: Locale
+  variant?: ScheduleVariant
+}) {
   const dict = getDict(locale)
+  const schedule = getSchedule(variant)
   const [filter, setFilter] = useState<Track>('all')
 
   const filters: { id: Track; label: string }[] = [
