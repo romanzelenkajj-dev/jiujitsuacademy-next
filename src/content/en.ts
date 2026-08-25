@@ -87,6 +87,7 @@ export const en: Dictionary = {
     filterNoGi: 'NoGi',
     individual: 'Private sessions',
     openMat: 'Open Mat',
+    classLabels: {} as Record<string, string>,
     days: {
       mon: 'Monday',
       tue: 'Tuesday',
