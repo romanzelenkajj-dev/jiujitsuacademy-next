@@ -76,7 +76,7 @@ export const sk = {
     eyebrow: 'Platné od 1.9.2026',
     title: 'Rozvrh tréningov Brazílskeho Jiu-Jitsu',
     subtitle:
-      'Tréningy pre deti (Mini 4–7, Kids 6–14) a dospelých (začiatočníci, pokročilí, MIX). Gi a NoGi.',
+      'Tréningy pre deti (Mini 4–7, Deti 6–14) a dospelých (začiatočníci, pokročilí, MIX). Gi a NoGi.',
     summerEyebrow: 'Letný rozvrh: 1.7. – 31.8.2026',
     summerSubtitle:
       'Počas leta je jeden spoločný detský tréning — Kids Mix (6–14) Gi — v pondelok a stredu 17:00–18:00. Tréningy pre dospelých bez zmeny. Gi a NoGi.',
@@ -87,6 +87,17 @@ export const sk = {
     filterNoGi: 'NoGi',
     individual: 'Individuálne tréningy',
     openMat: 'Open Mat',
+    classLabels: {
+      'Adults MIX Gi': 'Dospelí MIX Gi',
+      'Adults MIX NoGi': 'Dospelí MIX NoGi',
+      'Adults beginners Gi': 'Dospelí začiatočníci Gi',
+      'Adults beginners NoGi': 'Dospelí začiatočníci NoGi',
+      'Adults advanced Gi': 'Dospelí pokročilí Gi',
+      'Adults advanced NoGi': 'Dospelí pokročilí NoGi',
+      'Kids Mini (4–7)': 'Deti Mini (4–7)',
+      'Kids (6–14) Gi': 'Deti (6–14) Gi',
+      'Kids Mix (6–14) Gi': 'Deti Mix (6–14) Gi',
+    } as Record<string, string>,
     days: {
       mon: 'Pondelok',
       tue: 'Utorok',
