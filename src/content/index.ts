@@ -12,43 +12,43 @@ export const schedule = [
   {
     day: 'mon',
     classes: [
-      { start: '07:00', end: '08:30', label: 'Adults MIX Gi', track: 'adults', gi: 'gi' },
-      { start: '08:30', end: '17:00', label: 'Private', track: 'private' },
-      { start: '17:00', end: '17:45', label: 'Kids Mini (4–7)', track: 'kids' },
-      { start: '17:00', end: '18:00', label: 'Kids Juniors (8–14) Gi', track: 'kids', gi: 'gi' },
-      { start: '18:00', end: '19:00', label: 'Adults beginners Gi', track: 'adults', gi: 'gi' },
-      { start: '18:15', end: '19:45', label: 'Adults advanced Gi', track: 'adults', gi: 'gi' },
+      { start: '07:30', end: '09:00', label: 'Adults MIX Gi', track: 'adults', gi: 'gi' },
+      { start: '09:00', end: '16:45', label: 'Private', track: 'private' },
+      { start: '16:45', end: '17:30', label: 'Kids Mini (4–7)', track: 'kids' },
+      { start: '17:30', end: '18:30', label: 'Kids (6–14) Gi', track: 'kids', gi: 'gi' },
+      { start: '18:30', end: '20:00', label: 'Adults beginners Gi', track: 'adults', gi: 'gi' },
+      { start: '18:30', end: '20:00', label: 'Adults advanced Gi', track: 'adults', gi: 'gi' },
     ],
   },
   {
     day: 'tue',
     classes: [
-      { start: '07:00', end: '08:30', label: 'Adults MIX NoGi', track: 'adults', gi: 'nogi' },
-      { start: '08:30', end: '17:00', label: 'Private', track: 'private' },
-      { start: '17:00', end: '18:00', label: 'Kids Juniors (8–14) Gi', track: 'kids', gi: 'gi' },
-      { start: '18:00', end: '19:00', label: 'Adults beginners NoGi', track: 'adults', gi: 'nogi' },
-      { start: '18:15', end: '19:45', label: 'Adults advanced NoGi', track: 'adults', gi: 'nogi' },
+      { start: '07:30', end: '09:00', label: 'Adults MIX NoGi', track: 'adults', gi: 'nogi' },
+      { start: '09:00', end: '17:30', label: 'Private', track: 'private' },
+      { start: '17:30', end: '18:30', label: 'Kids (6–14) Gi', track: 'kids', gi: 'gi' },
+      { start: '18:30', end: '20:00', label: 'Adults beginners NoGi', track: 'adults', gi: 'nogi' },
+      { start: '18:30', end: '20:00', label: 'Adults advanced NoGi', track: 'adults', gi: 'nogi' },
     ],
   },
   {
     day: 'wed',
     classes: [
-      { start: '07:00', end: '08:30', label: 'Adults MIX Gi', track: 'adults', gi: 'gi' },
-      { start: '08:30', end: '17:00', label: 'Private', track: 'private' },
-      { start: '17:00', end: '17:45', label: 'Kids Mini (4–7)', track: 'kids' },
-      { start: '17:00', end: '18:00', label: 'Kids Juniors (8–14) Gi', track: 'kids', gi: 'gi' },
-      { start: '18:00', end: '19:00', label: 'Adults beginners Gi', track: 'adults', gi: 'gi' },
-      { start: '18:15', end: '19:45', label: 'Adults advanced Gi', track: 'adults', gi: 'gi' },
+      { start: '07:30', end: '09:00', label: 'Adults MIX Gi', track: 'adults', gi: 'gi' },
+      { start: '09:00', end: '16:45', label: 'Private', track: 'private' },
+      { start: '16:45', end: '17:30', label: 'Kids Mini (4–7)', track: 'kids' },
+      { start: '17:30', end: '18:30', label: 'Kids (6–14) Gi', track: 'kids', gi: 'gi' },
+      { start: '18:30', end: '20:00', label: 'Adults beginners Gi', track: 'adults', gi: 'gi' },
+      { start: '18:30', end: '20:00', label: 'Adults advanced Gi', track: 'adults', gi: 'gi' },
     ],
   },
   {
     day: 'thu',
     classes: [
-      { start: '07:00', end: '08:30', label: 'Adults MIX NoGi', track: 'adults', gi: 'nogi' },
-      { start: '08:30', end: '17:00', label: 'Private', track: 'private' },
-      { start: '17:00', end: '18:00', label: 'Kids Juniors (8–14) Gi', track: 'kids', gi: 'gi' },
-      { start: '18:00', end: '19:00', label: 'Adults beginners NoGi', track: 'adults', gi: 'nogi' },
-      { start: '18:15', end: '19:45', label: 'Adults advanced NoGi', track: 'adults', gi: 'nogi' },
+      { start: '07:30', end: '09:00', label: 'Adults MIX NoGi', track: 'adults', gi: 'nogi' },
+      { start: '09:00', end: '17:30', label: 'Private', track: 'private' },
+      { start: '17:30', end: '18:30', label: 'Kids (6–14) Gi', track: 'kids', gi: 'gi' },
+      { start: '18:30', end: '20:00', label: 'Adults beginners NoGi', track: 'adults', gi: 'nogi' },
+      { start: '18:30', end: '20:00', label: 'Adults advanced NoGi', track: 'adults', gi: 'nogi' },
     ],
   },
   {
@@ -117,14 +117,13 @@ export type ScheduleDay = (typeof schedule)[number]
 
 export type ScheduleVariant = 'regular' | 'summer'
 
-const SUMMER_2026_START = '2026-07-01'
-const SUMMER_2026_END = '2026-08-31'
-
-/** Returns which schedule is active on a given date (Europe/Bratislava time). */
+/**
+ * The new schedule (effective 1 Sep 2026) is published early so members can
+ * plan ahead — the summer variant is retired and 'regular' is always shown.
+ */
 export function getScheduleVariant(now: Date = new Date()): ScheduleVariant {
-  // 'sv-SE' locale formats as YYYY-MM-DD, safe for string comparison.
-  const d = now.toLocaleDateString('sv-SE', { timeZone: 'Europe/Bratislava' })
-  return d >= SUMMER_2026_START && d <= SUMMER_2026_END ? 'summer' : 'regular'
+  void now
+  return 'regular'
 }
 
 export function getSchedule(variant: ScheduleVariant) {
