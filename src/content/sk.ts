@@ -73,10 +73,10 @@ export const sk = {
     ],
   },
   schedule: {
-    eyebrow: 'Platné od 1.9.2025',
+    eyebrow: 'Platné od 1.9.2026',
     title: 'Rozvrh tréningov Brazílskeho Jiu-Jitsu',
     subtitle:
-      'Tréningy pre deti (Mini 4–7, Juniori 8–14) a dospelých (začiatočníci, pokročilí, MIX). Gi a NoGi.',
+      'Tréningy pre deti (Mini 4–7, Kids 6–14) a dospelých (začiatočníci, pokročilí, MIX). Gi a NoGi.',
     summerEyebrow: 'Letný rozvrh: 1.7. – 31.8.2026',
     summerSubtitle:
       'Počas leta je jeden spoločný detský tréning — Kids Mix (6–14) Gi — v pondelok a stredu 17:00–18:00. Tréningy pre dospelých bez zmeny. Gi a NoGi.',
