@@ -71,7 +71,7 @@ export function ScheduleTable({
                       {c.start}–{c.end}
                     </span>
                     <span className="text-white/85">
-                      {c.label === 'Private' ? dict.schedule.individual : c.label === 'Open Mat' ? dict.schedule.openMat : c.label}
+                      {c.label === 'Private' ? dict.schedule.individual : c.label === 'Open Mat' ? dict.schedule.openMat : dict.schedule.classLabels[c.label] ?? c.label}
                     </span>
                   </li>
                 ))}
