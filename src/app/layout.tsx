@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jiujitsuacademy.sk'),
+  metadataBase: new URL('https://www.jiujitsuacademy.sk'),
   title: {
     default: 'JIU-JITSU Academy Bratislava — Brazílske Jiu-Jitsu (BJJ)',
     template: '%s — JIU-JITSU Academy Bratislava',
