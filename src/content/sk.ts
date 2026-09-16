@@ -9,22 +9,22 @@ export const sk = {
         'TOP Akadémia Brazílskeho JIU-JITSU (BJJ) v Bratislave. Vyskúšaj si JIU-JITSU u nás na jeden týždeň zdarma!',
     },
     rozvrh: {
-      title: 'Rozvrh tréningov — JIU-JITSU Academy Bratislava',
+      title: 'Rozvrh tréningov',
       description:
         'Aktuálny rozvrh tréningov Brazílskeho Jiu-Jitsu pre deti a dospelých v Bratislave. Pondelok až sobota.',
     },
     clenstvo: {
-      title: 'Členstvo a ceny — JIU-JITSU Academy Bratislava',
+      title: 'Členstvo a ceny',
       description:
         'Ceny členstva pre dospelých a deti v JIU-JITSU Academy Bratislava. Mesačné, štvrťročné a polročné balíky.',
     },
     twoPercent: {
-      title: '2% z dane — JIU-JITSU Academy Bratislava',
+      title: '2% z dane',
       description:
         'Informácie a údaje potrebné na poukázanie 2% z dane JIU-JITSU Akadémii Bratislava, o. z.',
     },
     kontakt: {
-      title: 'Kontakt — JIU-JITSU Academy Bratislava',
+      title: 'Kontakt',
       description:
         'Aircraft Sporthouse, Ivanská cesta 30/D, 821 04 Bratislava. info@jiujitsuacademy.sk, +421 904 267 507.',
     },

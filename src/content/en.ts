@@ -9,22 +9,22 @@ export const en: Dictionary = {
         'Top Brazilian Jiu-Jitsu (BJJ) academy in Bratislava. Try JIU-JITSU with us for one week — free.',
     },
     rozvrh: {
-      title: 'Class schedule — JIU-JITSU Academy Bratislava',
+      title: 'Class schedule',
       description:
         'Weekly Brazilian Jiu-Jitsu schedule for kids and adults in Bratislava. Monday through Saturday.',
     },
     clenstvo: {
-      title: 'Membership & pricing — JIU-JITSU Academy Bratislava',
+      title: 'Membership & pricing',
       description:
         'Membership prices for adults and kids at JIU-JITSU Academy Bratislava. Monthly, quarterly and half-year plans.',
     },
     twoPercent: {
-      title: '2% of tax donation — JIU-JITSU Academy Bratislava',
+      title: '2% of tax donation',
       description:
         'Information to donate 2% of your Slovak income tax to JIU-JITSU Academy Bratislava non-profit.',
     },
     kontakt: {
-      title: 'Contact — JIU-JITSU Academy Bratislava',
+      title: 'Contact',
       description:
         'Aircraft Sporthouse, Ivanská cesta 30/D, 821 04 Bratislava. info@jiujitsuacademy.sk, +421 904 267 507.',
     },

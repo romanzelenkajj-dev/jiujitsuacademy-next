@@ -19,4 +19,4 @@ export const routeMap = {
 
 export type RouteKey = keyof typeof routeMap
 
-export const SITE_URL = 'https://jiujitsuacademy.sk'
+export const SITE_URL = 'https://www.jiujitsuacademy.sk'

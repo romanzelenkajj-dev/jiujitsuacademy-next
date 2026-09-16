@@ -1,7 +1,21 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale, routeMap, SITE_URL } from '@/lib/i18n'
 import { getDict } from '@/content'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  if (!isLocale(locale)) return {}
+  const dict = getDict(locale)
+  // The home title already leads with the brand, so opt out of the layout's
+  // "%s — JIU-JITSU Academy Bratislava" template to avoid repeating the brand.
+  return { title: { absolute: dict.meta.home.title } }
+}
 import { VideoHero } from '@/components/VideoHero'
 import { InstructorGrid } from '@/components/InstructorGrid'
 import { FreeWeekTrigger } from '@/components/FreeWeekTrigger'
