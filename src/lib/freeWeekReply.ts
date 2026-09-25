@@ -121,7 +121,7 @@ function copyFor(locale: Locale, type: FreeWeekType, name: string): Copy {
 // Padding is written long form for the same reason. Corners are square in clients
 // that drop border-radius, which is only cosmetic; the button stays visible.
 function buttonHtml(href: string, label: string): string {
-  return `<table cellpadding="0" cellspacing="0" border="0" align="left" style="margin:0 0 16px 0;">
+  return `<table cellpadding="0" cellspacing="0" border="0" style="margin:0 0 16px 0;">
     <tr>
       <td bgcolor="${ACCENT}" align="center" style="background-color:${ACCENT};border-radius:8px;">
         <a href="${href}" style="display:inline-block;color:#ffffff;text-decoration:none;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;line-height:16px;padding-top:12px;padding-right:22px;padding-bottom:12px;padding-left:22px;"><font color="#ffffff">${label}</font></a>
