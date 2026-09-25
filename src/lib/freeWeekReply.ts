@@ -137,7 +137,7 @@ function buildHtml(c: Copy): string {
 
     <p style="margin:24px 0 6px 0;font-weight:700;color:${ACCENT};text-transform:uppercase;letter-spacing:.05em;font-size:13px;">${c.appLabel}</p>
     <p style="margin:0 0 12px 0;">${c.appText}</p>
-        <p style="margin:0 0 16px 0;"><a href="${c.appUrl}" style="display:inline-block;background:${ACCENT};color:#ffffff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:8px;">${c.appButton}</a></p>
+    <p style="margin:0 0 16px 0;"><a href="${c.appUrl}" style="display:inline-block;background:${ACCENT};color:#ffffff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:8px;">${c.appButton}</a></p>
 
     <p style="margin:0 0 16px 0;">${c.questions}</p>
 
